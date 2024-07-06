@@ -5,6 +5,7 @@ import com.example.Lebruce.model.Car;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface CarService {
@@ -13,8 +14,8 @@ public interface CarService {
 
     Car saveCar(Car car);
 
-    Car findById(long id);
+    Optional<Car> findById(Long id);
 
-    void deleteById(long id);
+    void deleteById(Long id);
 
 }

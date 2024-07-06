@@ -7,10 +7,5 @@ import java.util.Optional;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
 
-    void deleteCarByCarId(Long carId);
-
-    Optional<Car> findByCarId(Long carId);
-
-
 
 }
