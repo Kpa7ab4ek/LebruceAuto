@@ -1,19 +1,18 @@
 package com.example.Lebruce.service;
 
-import com.example.Lebruce.model.Brand;
+import com.example.Lebruce.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
 @Service
-public interface BrandService {
+public interface UserService {
 
-    List<Brand> findAllBrand();
+    List<User> findAllUser();
 
-    Optional<Brand> getById(Long id);
+    Optional<User> getById(Long id);
 
-    Brand saveBrand(Brand brand);
+    User saveUser(User user);
 
     void deleteById(Long id);
 

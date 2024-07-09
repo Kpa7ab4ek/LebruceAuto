@@ -21,12 +21,11 @@ public class ServiceImpl implements ServiceService {
 
     @Override
     public Service createService(Service service) {
-        return repository.save(service);
+            return repository.save(service);
     }
 
     @Override
     public Optional<Service> findServiceById(Long id) {
-
         return repository.findById(id);
     }
 

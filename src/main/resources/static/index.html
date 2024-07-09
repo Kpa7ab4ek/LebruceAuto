@@ -1,1 +1,65 @@
-<h1>Sex</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Images</title>
+    <style>
+        .car-image {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+          margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Car Images</h1>
+<div id="car-images">
+    <!-- Car images will be inserted here -->
+</div>
+
+<script>
+    // Replace this array with your JSON response from Postman
+    const cars = [
+      {
+        "carId": 452,
+        "model": "Гранта",
+        "year": 2011,
+        "brand": {
+          "brandId": 3,
+          "name": "ВАЗ",
+          "country": {
+            "countryId": 1,
+            "name": "Россия"
+          }
+        },
+        "imageUrls": [
+          "https://yastatic.net/naydex/yandex-search/q11VLo302/d6ebcflImN/Eg66HAmPgq4yrISfkJPHnyTABf1XPYnUeqOwvyzNxyNqN-3YicQyN3DAUFcekBXkOWOy86-jsWH7xTNIidz5syUujCI0ruWEH5HTh9-P1qUD"
+        ],
+        "services": [
+          {
+            "serviceId": 302,
+            "serviceName": "БРБРБРБ",
+            "servicePrice": 100.0
+          }
+        ]
+      }
+
+    ];
+
+    // Get the car-images div
+    const carImagesDiv = document.getElementById('car-images');
+
+    // Loop through the cars array and create img elements for each imageUrl
+    cars.forEach(car => {
+      car.imageUrls.forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.classList.add('car-image');
+        carImagesDiv.appendChild(img);
+      });
+    });
+</script>
+</body>
+</html>

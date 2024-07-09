@@ -26,9 +26,9 @@ public class ServiceController {
 
     @PostMapping()
     public ResponseEntity<?> create(@RequestBody Service service){
-        serviceService.createService(service);
-        return ResponseEntity.ok("Услуга успешно создана");
+        return ResponseEntity.ok( serviceService.createService(service));
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){

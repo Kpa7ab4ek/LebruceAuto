@@ -18,6 +18,11 @@ public class BrandController {
         return ResponseEntity.ok(service.findAllBrand());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+      return ResponseEntity.ok(service.getById(id));
+    }
+
     @PostMapping()
     public ResponseEntity<?> create(@RequestBody Brand brand) {
         return ResponseEntity.ok(service.saveBrand(brand));
@@ -28,6 +33,5 @@ public class BrandController {
         service.deleteById(id);
         return ResponseEntity.ok("Бренд успешно удален");
     }
-
 
 }

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Data
 @AllArgsConstructor
@@ -25,9 +27,16 @@ public class Service {
     @Column(nullable = false)
     private double servicePrice;
 
+    @Column(length = 1000)
+    private String serviceDescription;
+
     @ManyToOne
     @JoinColumn(name = "car_id", nullable = false)
     @JsonBackReference
     private Car car;
+
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ServiceInfo> serviceInfoList;
 
 }

@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BrandImpl implements BrandService {
     private final BrandRepository repository;
-    private final CountryService countryService;
 
     @Override
     public List<Brand> findAllBrand() {
