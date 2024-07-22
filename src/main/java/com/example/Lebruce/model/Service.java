@@ -2,6 +2,7 @@ package com.example.Lebruce.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,7 +37,9 @@ public class Service {
     private Car car;
 
 
-    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ServiceInfo> serviceInfoList;
+    @ManyToMany(mappedBy = "selectedServices")
+    @JsonIgnore
+    private List<Order> orders;
+
 
 }
