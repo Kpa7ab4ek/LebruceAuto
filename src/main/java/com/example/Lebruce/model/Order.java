@@ -2,6 +2,7 @@ package com.example.Lebruce.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,13 +44,26 @@ public class Order {
 
 
     @Pattern(regexp = "^[0-9]{11}$")
+    @Column(unique = true)
     private String numberPhone;
 
+
+    @Email(message = "Введите почту")
+    @Column(unique = true)
     private String email;
 
     private LocalDate date;
 
+    private String status;
 
-    //Сделать как-то подсчёт суммы
+    @Transient
     private Double totalPrice;
+
+    public Double getTotalPrice(){
+        double total = 0.0;
+        for (Service service : selectedServices) {
+            total += service.getServicePrice();
+        }
+        return total;
+    }
 }
