@@ -1,18 +1,17 @@
 package com.example.Lebruce.service.implement;
 
-import com.example.Lebruce.model.Car;
 import com.example.Lebruce.model.Order;
 import com.example.Lebruce.repository.OrderRepository;
 import com.example.Lebruce.service.OrderService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class OrderImpl implements OrderService {
 
     private final OrderRepository repository;
@@ -37,6 +36,8 @@ public class OrderImpl implements OrderService {
         repository.deleteById(id);
     }
 
-
-
+    @Override
+    public List<Order> findOrdersByEmail(String email) {
+        return repository.findByEmail(email);
+    }
 }

@@ -26,15 +26,31 @@ public class CarController {
         return ResponseEntity.ok(service.findById(id));
     }
 
+    @GetMapping("sort/model")
+    public List<Car> findCarByModel(@RequestParam String model){
+        return service.findByModel(model);
+    }
+
+    @GetMapping("sort/brand")
+    public List<Car> findByBrandName(@RequestParam String name){
+        return service.findAllByBrand_Name(name);
+    }
+
+    @GetMapping("sort/country")
+    public List<Car> findByCountryName(@RequestParam String name){
+        return service.findAllByCountryName(name);
+    }
+
     @PostMapping()
     public ResponseEntity<?> createCar(@RequestBody Car car){
         return  ResponseEntity.ok(service.saveCar(car));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCasById(@PathVariable Long id){
+    public ResponseEntity<?> deleteCarById(@PathVariable Long id){
         service.deleteById(id);
         return ResponseEntity.ok("Машина удалена");
     }
+
 
 }

@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -44,12 +43,10 @@ public class Order {
 
 
     @Pattern(regexp = "^[0-9]{11}$")
-    @Column(unique = true)
     private String numberPhone;
 
 
-    @Email(message = "Введите почту")
-    @Column(unique = true)
+    @Email
     private String email;
 
     private LocalDate date;

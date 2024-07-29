@@ -2,7 +2,6 @@ package com.example.Lebruce.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,11 +34,5 @@ public class Service {
     @JoinColumn(name = "car_id", nullable = false)
     @JsonBackReference
     private Car car;
-
-
-    @ManyToMany(mappedBy = "selectedServices")
-    @JsonIgnore
-    private List<Order> orders;
-
 
 }

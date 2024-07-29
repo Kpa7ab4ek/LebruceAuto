@@ -3,17 +3,17 @@ package com.example.Lebruce.controller;
 import com.example.Lebruce.model.Car;
 import com.example.Lebruce.model.Order;
 import com.example.Lebruce.service.OrderService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-
 
 @RestController
 @RequestMapping("api/v1/orders")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class OrderController {
 
     private final OrderService service;
@@ -27,6 +27,12 @@ public class OrderController {
     public ResponseEntity<?> findById(@PathVariable Long id){
         return ResponseEntity.ok(service.findById(id));
     }
+
+    @GetMapping("email")
+    public List<Order> findOrdersByEmail(@RequestParam String email){
+        return service.findOrdersByEmail(email);
+    }
+
 
     @PostMapping()
     public ResponseEntity<?> save(@RequestBody Order order) {

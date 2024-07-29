@@ -35,4 +35,9 @@ public class BrandImpl implements BrandService {
         repository.deleteById(id);
     }
 
+    @Override
+    public List<Brand> findByName(String name) {
+        return repository.findByName(name);
+    }
+
 }

@@ -16,5 +16,5 @@ public interface BrandService {
     Brand saveBrand(Brand brand);
 
     void deleteById(Long id);
-
+    List<Brand> findByName(String name);
 }
