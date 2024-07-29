@@ -33,6 +33,6 @@ public class ServiceController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         serviceService.deleteServiceById(id);
-        return ResponseEntity.ok("Услуга удалена");
+        return ResponseEntity.ok("Услуга c id: " + id + " удалена");
     }
 }

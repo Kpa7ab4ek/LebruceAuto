@@ -32,7 +32,7 @@ public class CountryController {
     @DeleteMapping("/{id}")
     private ResponseEntity<?> delete(@PathVariable Long id){
         service.deleteById(id);
-        return ResponseEntity.ok("Страна удалена");
+        return ResponseEntity.ok("Страна c id: " + id + " удалена");
     }
 
 }

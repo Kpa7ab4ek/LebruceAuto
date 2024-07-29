@@ -18,6 +18,7 @@ public class CarController {
 
     @GetMapping()
     public ResponseEntity<?> findCar() {
+
         return ResponseEntity.ok(service.findAllCar());
     }
 
@@ -49,8 +50,7 @@ public class CarController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCarById(@PathVariable Long id){
         service.deleteById(id);
-        return ResponseEntity.ok("Машина удалена");
+        return ResponseEntity.ok("Машина с id: " + id +" удалена");
     }
-
 
 }

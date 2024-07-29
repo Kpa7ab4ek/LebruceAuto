@@ -38,7 +38,7 @@ public class BrandController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.deleteById(id);
-        return ResponseEntity.ok("Бренд успешно удален");
+        return ResponseEntity.ok("Бренд c id: " + id + " удален");
     }
 
 }
