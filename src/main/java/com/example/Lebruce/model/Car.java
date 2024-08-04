@@ -44,4 +44,9 @@ public class Car {
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Service> services;
+
+    @Override
+    public String toString() {
+        return (brand != null ? brand.getName() : null) + " " + model + ", год выпуска:" + year;
+    }
 }

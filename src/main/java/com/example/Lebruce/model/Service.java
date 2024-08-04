@@ -35,4 +35,10 @@ public class Service {
     @JsonBackReference
     private Car car;
 
+
+    @Override
+    public String toString() {
+        return "Номер услуги=" + serviceId + ", услуга=" + serviceName + ", цена:" + servicePrice;
+    }
+
 }

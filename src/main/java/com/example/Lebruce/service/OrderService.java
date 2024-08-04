@@ -17,5 +17,7 @@ public interface OrderService {
 
     List<Order> findOrdersByEmail(String email);
 
+    Order updateOrder(Long id, Order order);
+
 
 }

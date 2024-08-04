@@ -26,4 +26,10 @@ public class Brand {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
+
+    @Override
+    public String toString() {
+        return "Brand(brandId=" + brandId + ", brandName=" + name + ")";
+    }
+
 }

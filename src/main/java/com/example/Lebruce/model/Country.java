@@ -17,4 +17,9 @@ public class Country {
 
     @Column(nullable = false)
     private String name;
+
+    @Override
+    public String toString() {
+        return "Country(countryId=" + countryId + ", countryName=" + name + ")";
+    }
 }
