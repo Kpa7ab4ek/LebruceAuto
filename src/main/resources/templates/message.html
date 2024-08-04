@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информауия о заказе</title>
+</head>
+<body>
+<h1>Информауия о заказе</h1>
+<p>Здраствуйте, <span th:text="${firstName}"></span> <span th:text="${secondName}"></span> <span th:text="${thirdName}"></span>,</p>
+<p>Благодарим вас за то, что выбрали наше Тюнинг ателье. Ниже представлена информация о вашей записи:</p>
+
+<table border="1">
+    <tr>
+        <th>Номер заказа</th>
+        <td th:text="${orderId}"></td>
+    </tr>
+    <tr>
+        <th>Дата</th>
+        <td th:text="${orderDate}"></td>
+    </tr>
+    <tr>
+        <th>Предварительная цена</th>
+        <td th:text="${totalPrice}"></td>
+    </tr>
+    <tr>
+        <th>Машина</th>
+        <td th:text="${car}"></td>
+    </tr>
+    <tr>
+        <th>Выбранная услуга</th>
+        <td>
+            <ul>
+                <li th:each="service : ${selectedServices}" th:text="${service}"></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<p>Если у вас возникнут какие-либо вопросы, то можете связаться с намипо этому номеру телефона 2281337.</p>
+<p>С наилучшими пожеланиями,<br>LebruceAuto</p>
+</body>
+</html>
