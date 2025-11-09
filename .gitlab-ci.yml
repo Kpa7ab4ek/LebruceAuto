@@ -1,0 +1,42 @@
+stages:
+  - verify
+  - test
+  - build
+
+variables:
+  MAVEN_CLI_OPTS: "-Dmaven.repo.local=.m2/repository -DskipTests"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+verify_deps_and_security:
+  stage: verify
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+    - mvn org.owasp:dependency-check-maven:check
+
+lint_code:
+  stage: verify
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS checkstyle:check
+
+run_tests:
+  stage: test
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn test
+
+build_project:
+  stage: build
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 week
